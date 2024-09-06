@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 2cm; padding-left: 3cm; font-family: 'Verdana', sans-serif;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4" style="color: #000000; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                Quiz Results
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" style="background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                            <thead style="background-color: #ff5722; color: white;">
+                                <tr style="text-align: center;">
+                                    <th style="padding: 15px; font-size: 16px; font-weight: bold; color: #000000;">#</th>
+                                    <th style="padding: 15px; font-size: 16px; font-weight: bold; color: #000000;">Quiz Name</th>
+                                    <th style="padding: 15px; font-size: 16px; font-weight: bold; color: #000000;">Total Questions</th>
+                                    <th style="padding: 15px; font-size: 16px; font-weight: bold; color: #000000;">Correct Answers</th>
+                                    <th style="padding: 15px; font-size: 16px; font-weight: bold; color: #000000;">Incorrect Answers</th>
+                                    <th style="padding: 15px; font-size: 16px; font-weight: bold; color: #000000;">Correct Answer Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in results %}
+                                <tr style="text-align: center;">
+                                    <td style="padding: 15px; font-size: 15px; font-weight: 600; color: #333;">{{ loop.index }}</td>
+                                    <td style="padding: 15px; font-size: 15px; font-weight: 600; color: #333;">{{ result.quiz_name }}</td>
+                                    <td style="padding: 15px; font-size: 15px; font-weight: 600; color: #333;">{{ result.total_questions }}</td>
+                                    <td style="padding: 15px; font-size: 15px; font-weight: 600; color: #333;">{{ result.correct_answers }}</td>
+                                    <td style="padding: 15px; font-size: 15px; font-weight: 600; color: #333;">{{ result.incorrect_answers }}</td>
+                                    <td style="padding: 15px; font-size: 15px; font-weight: 600; color: #333;">{{ result.correct_answer_percentage }}%</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
